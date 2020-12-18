@@ -11,6 +11,10 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@11ty/eleventy": "^0.11.1"
+        "@11ty/eleventy": "^0.11.1",
+        "axios": "^0.21.0"
+    },
+    "devDependencies": {
+        "dotenv": "^8.2.0"
     }
 }
