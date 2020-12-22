@@ -1,17 +1,27 @@
 require('dotenv').config()
 const axios = require('axios')
+const countries = require('./countries.json')
 
 const apiKey = process.env.NEWS_API_KEY
-const endpoint = `http://newsapi.org/v2/everything?q=bitcoin&from=2020-11-18&sortBy=publishedAt&apiKey=${apiKey}`
 
-async function getNews() {
+async function getNews(country) {
+    const endpoint = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${apiKey}&pageSize=5`
+
     try {
         const response = await axios.get(endpoint)
         const news = response.data
-        return news
+        return {
+            country,
+            articles: news.articles,
+        }
     } catch (error) {
         console.error(error)
     }
 }
 
-module.exports = getNews
+async function newsCollection() {
+    const result = await Promise.all(countries.map(getNews))
+    return result
+}
+
+module.exports = newsCollection
