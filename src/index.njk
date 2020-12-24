@@ -9,6 +9,14 @@ layout: base.njk
     <div class="love">
         ❤️️
     </div>
+
+    <div id="weather" class="hidden">
+        <h2>Weather near you</h2>
+        <p id="city"></p>
+        <p id="temp"></p>
+        <p id="desc"></p>
+    </div>
+
     <ul class="news">
         {% for article in news[0].articles %}
             <li>
@@ -21,3 +29,4 @@ layout: base.njk
     </ul>
 </div>
 <script src="public/js/script.js"></script>
+<script src="public/js/weather.js"></script>

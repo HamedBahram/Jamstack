@@ -21,3 +21,7 @@ h3 {
     list-style: none;
     text-align: left;
 }
+
+.hidden {
+    display: none;
+}
